@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    font-family: fantasy;
+    font-weight: 100;
+    font-size: 50px;
+    border-bottom: 2px solid gray;
+    border-right: 2px solid gray;
+    width: 8em;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+figure img {
+    width: 400px;
+    height: 300px;
+    transition: all 1s;
+}
+
+figure img:hover {
+    transform: scale(1.1);
+    animation: linear;
+    -webkit-animation: linear;
+}
