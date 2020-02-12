@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .input-label,
+        .input-field {
+            display: block;
+        }
+
+        .input-field {
+            margin: 0 0 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <h3>Student Result</h3>
+        <form action="">
+
+            <label for="english" class="input-label">English:</label>
+            <input type="number" class="input-field" name="english" id="english">
+
+            <label for="arithmetic" class="input-label">Arithmetic:</label>
+            <input type="number" class="input-field" name="arithmetic" id="arithmetic">
+
+            <label for="genknow" class="input-label">General Knowledge:</label>
+            <input type="number" class="input-field" name="genknow" id="genknow">
+
+            <label for="totalscore" class="input-label">Total Score:</label>
+            <input type="number" class="input-field" name="totalscore" id="totalscore" disabled>
+        </form>
+    </form>
+
+    <script>
+        function massageScoreValue(xValue) {
+            if (isNaN(parseFloat(xValue))) { return 0; }
+            else { return parseFloat(xValue); }
+        }
+
+        function calculateTotalScore() {
+            //get the values of the subjects..
+            var englishScore = document.getElementById("english").value;
+            var arithmeticScore = document.getElementById("arithmetic").value;
+            var genKnowScore = document.getElementById("genknow").value;
+            //masage the values...
+            englishScore = massageScoreValue(englishScore);
+            arithmeticScore = massageScoreValue(arithmeticScore);
+            genKnowScore = massageScoreValue(genKnowScore);
+            //add the score values...
+            var totalScore = englishScore + arithmeticScore + genKnowScore;
+            //console.log(totalScore);
+            //return total score to page...
+            document.getElementById("totalscore").value = totalScore;
+        }
+
+        document.getElementById("english").addEventListener("input", calculateTotalScore);
+        document.getElementById("arithmetic").addEventListener("input", calculateTotalScore);
+        document.getElementById("genknow").addEventListener("input", calculateTotalScore);
+
+
+    </script>
+</body>
+
+</html>
